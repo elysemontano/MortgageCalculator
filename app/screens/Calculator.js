@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Button, TextInput, SafeAreaView, View, StyleSheet, Text } from 'react-native';
+import { ImageBackground, Button, TextInput, SafeAreaView, View, StyleSheet, Text } from 'react-native';
 
 import colors from '../config/colors';
 
@@ -43,12 +43,13 @@ function calculator(props) {
         }, [onSubmit])
 
         return (
-           <SafeAreaView style={styles.container}>
+           <ImageBackground source={require('../assets/house.jpeg')} style={styles.container}>
                <View style={styles.header}>
                <Text style={styles.headerText}>Mortgage Calculator</Text>
                </View>
     
                <View style={styles.inputContainer}>
+                   <View style={styles.innerContainer}>
                    <Text style={styles.text}>Loan Amount:</Text>
                    <TextInput 
                         style={styles.input}
@@ -71,9 +72,9 @@ function calculator(props) {
                         placeholder="30 year"/>
 
                     <View style={styles.button}>
-                    <Button
+                    <Button style={styles.calculate}
                         title="Calculate"
-                        color="#000"
+                        color="#FFFFFF"
                         onPress={onSubmit}/>
                     </View>
                     <View style={styles.result}>
@@ -81,22 +82,23 @@ function calculator(props) {
                         <Text style={styles.result}>${monthly} per month</Text>}
                         
                     </View>
+                   </View>
            </View>
-           </SafeAreaView>
+           </ImageBackground>
     );
 }
 
 const styles = StyleSheet.create({
     button: {
-        backgroundColor: colors.pink,
+        backgroundColor: colors.secondary,
         color: colors.white,
         justifyContent: 'center',
         marginRight: 'auto',
         marginLeft: 'auto',
         marginTop: 20,
         marginBottom: 10,
-        width: '30%',
-        height: '8%',
+        width: '40%',
+        height: '10%',
         borderRadius: 25,
         borderWidth: .5,
         shadowColor: "#000",
@@ -107,10 +109,16 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.25,
         shadowRadius: 3.84,
         elevation: 5,
+        borderColor: colors.white,
     },
+
+    calculate: {
+        padding: 10,
+    },
+    
     container: {
         flex: 1,
-      backgroundColor: colors.black,
+    //   backgroundColor: colors.black,
       alignItems: 'center',
     },
     header: {
@@ -120,6 +128,7 @@ const styles = StyleSheet.create({
         width: '100%',
         height: '15%',
         backgroundColor: colors.secondary,
+        paddingTop: 30,
         borderWidth: .5,
         shadowColor: "#000",
         shadowOffset: {
@@ -128,17 +137,36 @@ const styles = StyleSheet.create({
         },
         shadowOpacity: 0.25,
         shadowRadius: 3.84,
-
         elevation: 5,
     },
     headerText: {
         fontSize: 30,
+        color: colors.white,
     },
     inputContainer: {
         flex: 3,
         paddingTop: 50,
         width: '100%',
-        backgroundColor: colors.primary,
+        // backgroundColor: colors.primary,
+    },
+
+    innerContainer: {
+        backgroundColor: colors.secondary,
+        marginLeft: 60,
+        marginRight: 60,
+        paddingTop: 20,
+        borderColor: colors.black,
+        borderRadius: 10,
+        borderWidth: 1,
+        shadowColor: colors.black,
+        shadowOffset: {
+	        width: 2,
+	        height: 2,
+        },
+        shadowOpacity: 0.5,
+        shadowRadius: 3,
+        elevation: 5,
+    
     },
     input: {
         backgroundColor: colors.white,
@@ -157,10 +185,11 @@ const styles = StyleSheet.create({
         paddingTop: 20,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: colors.primary,
+        // backgroundColor: colors.primary,
     },
       text: {
           marginLeft: 60,
+          color: colors.white,
       },
   });
 
