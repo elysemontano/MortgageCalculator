@@ -3,7 +3,6 @@
     "name": "Mortgage Calculator",
     "slug": "MortgageCalculator",
     "version": "1.0.0",
-    "sdkVersion": "1.0.0",
     "orientation": "portrait",
     "icon": "./app/assets/icon.png",
     "splash": {
