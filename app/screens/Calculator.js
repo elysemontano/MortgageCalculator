@@ -50,39 +50,40 @@ function calculator(props) {
     
                <View style={styles.inputContainer}>
                    <View style={styles.innerContainer}>
-                   <Text style={styles.text}>Loan Amount:</Text>
-                   <TextInput 
-                        style={styles.input}
-                        onChangeText={loan => setLoan(loan)}
-                        defaltValue={loan}
-                        placeholder="$400,000"/>
-    
-                   <Text style={styles.text}>Interest Rate:</Text>
-                   <TextInput 
-                        style={styles.input}
-                        onChangeText={interest => setInterest(interest)}
-                        defaultValue={interest}
-                        placeholder="3.5%"/>
-    
-                   <Text style={styles.text}>Loan Term:</Text>
-                   <TextInput 
-                        style={styles.input}
-                        onChangeText={term => setTerm(term)}
-                        defaultValue={term}
-                        placeholder="30 year"/>
+                    <Text style={styles.text}>Loan Amount:</Text>
+                    <TextInput 
+                            style={styles.input}
+                            onChangeText={loan => setLoan(loan)}
+                            defaltValue={loan}
+                            placeholder="$400,000"/>
+        
+                    <Text style={styles.text}>Interest Rate:</Text>
+                    <TextInput 
+                            style={styles.input}
+                            onChangeText={interest => setInterest(interest)}
+                            defaultValue={interest}
+                            placeholder="3.5%"/>
+        
+                    <Text style={styles.text}>Loan Term:</Text>
+                    <TextInput 
+                            style={styles.input}
+                            onChangeText={term => setTerm(term)}
+                            defaultValue={term}
+                            placeholder="30 year"/>
 
-                    <View style={styles.button}>
-                    <Button style={styles.calculate}
-                        title="Calculate"
-                        color="#FFFFFF"
-                        onPress={onSubmit}/>
-                    </View>
-                    <View style={styles.result}>
-                        {!isNaN(monthly) &&
-                        <Text style={styles.result}>${monthly} per month</Text>}
-                        
+                        <View style={styles.button}>
+                        <Button style={styles.calculate}
+                            title="Calculate"
+                            color="#FFFFFF"
+                            onPress={onSubmit}/>
+                        </View>
+                        <View style={styles.result}>
+                            {!isNaN(monthly) &&
+                            <Text style={styles.result}>${monthly} per month</Text>}
+                            
                     </View>
                    </View>
+                  
            </View>
            </ImageBackground>
     );
@@ -90,7 +91,7 @@ function calculator(props) {
 
 const styles = StyleSheet.create({
     button: {
-        backgroundColor: colors.secondary,
+        backgroundColor: colors.primary,
         color: colors.white,
         justifyContent: 'center',
         marginRight: 'auto',
@@ -118,7 +119,6 @@ const styles = StyleSheet.create({
     
     container: {
         flex: 1,
-    //   backgroundColor: colors.black,
       alignItems: 'center',
     },
     header: {
@@ -127,7 +127,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         width: '100%',
         height: '15%',
-        backgroundColor: colors.secondary,
+        backgroundColor: colors.primary,
         paddingTop: 30,
         borderWidth: .5,
         shadowColor: "#000",
@@ -144,14 +144,14 @@ const styles = StyleSheet.create({
         color: colors.white,
     },
     inputContainer: {
-        flex: 3,
+        flex: 4,
         paddingTop: 50,
         width: '100%',
-        // backgroundColor: colors.primary,
+        height: '100%',
     },
 
     innerContainer: {
-        backgroundColor: colors.secondary,
+        backgroundColor: colors.primary,
         marginLeft: 60,
         marginRight: 60,
         paddingTop: 20,
@@ -180,12 +180,13 @@ const styles = StyleSheet.create({
         paddingLeft: 10,
       },
     result: {
-        flex: 1,
         fontSize: 30,
-        paddingTop: 20,
+        paddingTop: 10,
+        paddingBottom: 10,
         justifyContent: 'center',
         alignItems: 'center',
-        // backgroundColor: colors.primary,
+        color: colors.white,
+
     },
       text: {
           marginLeft: 60,
